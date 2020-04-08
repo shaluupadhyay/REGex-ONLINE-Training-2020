@@ -1,0 +1,38 @@
+1)Why any user added using useradd command is not visible in home directory?
+Ans.adduser is a friendlier frontend to useradd and will do things like create directories by default.
+When we run it with only user name as an argument,we will be prompted to provide additional information such as password,whereas
+in useradd we have to run a seperate command to do so.
+We can use -m option with useradd to add it to home directory. 
+
+2)When we create a user, some hidden files are generated in the directory of the same user at that time.How is it done?
+Ans.We can list the hidden files by using ls -la command.
+
+3)Make sub directories inside a parent directory by using single mkdir command.
+Ans.$ mkdir -p A/B/C
+
+4)Change the Umask value for any user permanently.
+Ans.To make the changes permanently in global configuration file like /etc/profile which will all affect users or in user's shell configuartion files 
+such as ~/ .profile, ~/ .bashrc,~/ .zshrc which will affect only the user.
+
+5)Add a new user without using adduser & useradd command.
+Ans.Add the entry for user in /etc/passwd file .
+Add the entry for group in /etc/group file.
+Create the home directory for the added user.
+Set the new user password using new user command.
+
+6)Can we change the Umask value to 0888.If yes,then how.If no then why?
+Ans.No,because the maximum Umask value which we can set is 0777.
+If we set it to 0888, the difference between the umask value and the default permission will turn out to be negative.
+
+7)How to add a new user with a unique user id and checkout the unique id of that user.
+Ans.$ sudo useradd -u 1345 username
+$ id -u username.
+
+8)How to change the group of any folder.
+Ans.$ chgrp groupname foldername
+
+8)a)After this checkout the group name of the files present in that folder.
+Ans.To checkout the group name of the files present in that folder we should use -c option with chgrp command.
+
+8)b)Try to change the group of the folder and the files present in the same folder using a single command.
+Ans.$ chgrp groupname directoryname filenames
